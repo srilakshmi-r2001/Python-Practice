@@ -1,0 +1,93 @@
+class Solution:
+    def romanToInt(self, s: str) -> int:
+        sum=0
+        for i in range(0,len(s)):
+            if(i==len(s)-1):
+                if(s[i]=='I'):
+                    sum=sum+1
+                elif(s[i]=='V'):
+                    if(s[i-1]=='I'):
+                        sum=sum+0
+                    else:
+                        sum=sum+5
+                elif(s[i]=='X'):
+                    if(s[i-1]=='I'):
+                        sum=sum+0
+                    else:
+                        sum=sum+10
+                elif(s[i]=='L'):
+                    if(s[i-1]=='X'):
+                        sum=sum+0
+                    else:
+                        sum=sum+50
+                elif(s[i]=='C'):
+                    if(s[i-1]=='X'):
+                        sum=sum+0
+                    else:
+                        sum=sum+100
+                elif(s[i]=='D'):
+                    if(s[i-1]=='C'):
+                        sum=sum+0
+                    else:
+                        sum=sum+500
+                elif(s[i]=='M'):
+                    if(s[i-1]=='C'):
+                        sum=sum+0
+                    else:
+                        sum=sum+1000
+                else:
+                    sum=sum+0
+            else:
+                if(s[i]=='I'):
+                    if(s[i+1]=='V'):
+                        sum=sum+4
+                    elif(s[i+1]=='X'):
+                        sum=sum+9
+                    else:
+                        sum=sum+1
+                elif(s[i]=='V'):
+                    if(s[i-1]=='I'):
+                        sum=sum+0
+                    else:
+                        sum=sum+5
+                elif(s[i]=='X'):
+                    if(s[i-1]=='I'):
+                        sum=sum+0
+                    elif(s[i+1]=='C'):
+                        sum=sum+90
+                    elif(s[i+1]=='L'):
+                        sum=sum+40
+                    else:
+                        sum=sum+10
+                elif(s[i]=='L'):
+                    if(s[i-1]=='X'):
+                        sum=sum+0
+                    else:
+                        sum=sum+50
+                elif(s[i]=='C'):
+                    if(s[i-1]=='X'):
+                        sum=sum+0
+                    elif(s[i+1]=='D'):
+                        sum=sum+400
+                    elif(s[i+1]=='M'):
+                        sum=sum+900
+                    else:
+                        sum=sum+100
+                elif(s[i]=='D'):
+                    if(s[i-1]=='C'):
+                        sum=sum+0
+                    else:
+                        sum=sum+500
+                elif(s[i]=='M'):
+                    if(s[i-1]=='C'):
+                        sum=sum+0
+                    else:
+                        sum=sum+1000
+                else:
+                    sum=sum+0
+            
+        return sum
+
+sol=Solution()
+integer=sol.romanToInt('MMMCDXC')
+print(integer)
